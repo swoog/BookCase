@@ -1,33 +1,36 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 
 namespace Bookcase.Tests
 {
+    using Xunit;
+
     [Binding]
     public class WoodenBoardSteps
     {
+        private WoodenBoard woodenBoard;
+
         [Given(@"a wooden board of ""(.*)"" mm")]
         public void GivenAWoodenBoardOfMm(string woodenSize)
         {
-            ScenarioContext.Current.Pending();
+            this.woodenBoard = new WoodenBoard(woodenSize);
         }
         
         [Then(@"the width is (.*) mm")]
-        public void ThenTheWidthIsMm(int p0)
+        public void ThenTheWidthIsMm(int width)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(width, this.woodenBoard.Width);
         }
         
         [Then(@"the height is (.*) mm")]
-        public void ThenTheHeightIsMm(int p0)
+        public void ThenTheHeightIsMm(int height)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(height, this.woodenBoard.Height);
         }
         
         [Then(@"the thickness is (.*) mm")]
-        public void ThenTheThicknessIsMm(int p0)
+        public void ThenTheThicknessIsMm(int thickness)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(thickness, this.woodenBoard.Thickness);
         }
     }
 }
