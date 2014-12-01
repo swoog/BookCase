@@ -50,12 +50,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CuttingWoodenBoard.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuttingWoodenBoard.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CuttingWoodenBoardSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WoodenBoard.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>WoodenBoard.feature</DependentUpon>
     </Compile>
+    <Compile Include="WoodenBoardEquality.cs" />
     <Compile Include="WoodenBoardSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CuttingWoodenBoard.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CuttingWoodenBoard.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="WoodenBoard.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

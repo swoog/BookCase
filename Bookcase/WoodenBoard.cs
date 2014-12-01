@@ -14,10 +14,22 @@
             this.Height = sizes[2];
         }
 
+        public WoodenBoard(int width, int height, int thickness)
+        {
+            this.Width = width;
+            this.Height = height;
+            this.Thickness = thickness;
+        }
+
         public int Width { get; set; }
 
         public int Height { get; set; }
 
         public int Thickness { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}x{1}x{2}", this.Width, this.Height, this.Thickness);
+        }
     }
 }
