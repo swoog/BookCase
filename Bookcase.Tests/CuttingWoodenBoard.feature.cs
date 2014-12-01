@@ -172,6 +172,37 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Cutting Wooden Board")]
+        [Xunit.TraitAttribute("Description", "Cutting wooden board from 600x800 with rectangular surface")]
+        public virtual void CuttingWoodenBoardFrom600X800WithRectangularSurface()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 600x800 with rectangular surface", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+ testRunner.Given("a wooden board of \"600x800x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+ testRunner.And("I want a wooden board of \"200x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.When("I cut", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Wooden board"});
+            table5.AddRow(new string[] {
+                        "200x400x15,400x600x15,200x800x15"});
+            table5.AddRow(new string[] {
+                        "200x400x15,200x200x15,600x600x15"});
+            table5.AddRow(new string[] {
+                        "200x400x15,200x400x15,400x800x15"});
+            table5.AddRow(new string[] {
+                        "200x400x15,400x400x15,400x600x15"});
+#line 43
+ testRunner.Then("I have this wooden boards :", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
