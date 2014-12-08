@@ -18,6 +18,43 @@
 
             yield return CreateWoodenBoardResult(woodenBoard, patternWidth, patternHeight);
             yield return CreateWoodenBoardResult(woodenBoard, patternHeight, patternWidth);
+            yield return CreateWoodenBoardResult2(woodenBoard, patternWidth, patternHeight);
+            yield return CreateWoodenBoardResult2(woodenBoard, patternHeight, patternWidth);
+        }
+
+        private static WoodenBoardResults CreateWoodenBoardResult2(
+            WoodenBoard woodenBoard,
+            int patternWidth,
+            int patternHeight)
+        {
+            var woodenBoards = new List<WoodenBoard>();
+            woodenBoards.Add(new WoodenBoard(patternWidth, patternHeight, woodenBoard.Thickness));
+
+            var boardHeight = woodenBoard.Height;
+
+            if (boardHeight - patternHeight > 0)
+            {
+                woodenBoards.Add(new WoodenBoard(boardHeight - patternHeight, woodenBoard.Width, woodenBoard.Thickness));
+
+                woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, patternWidth, patternHeight));
+            }
+            else
+            {
+                woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, boardHeight, patternWidth));
+            }
+
+            return new WoodenBoardResults(woodenBoards);
+        }
+
+        private static IEnumerable<WoodenBoard> CreateWoodenBoard2(
+    WoodenBoard woodenBoard,
+    int patternWidth,
+    int patternHeight)
+        {
+            if (woodenBoard.Width - patternWidth > 0)
+            {
+                yield return new WoodenBoard(patternHeight, woodenBoard.Width - patternWidth, woodenBoard.Thickness);
+            }
         }
 
         private static WoodenBoardResults CreateWoodenBoardResult(

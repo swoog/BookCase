@@ -16,9 +16,11 @@
 
         public WoodenBoard(int width, int height, int thickness)
         {
-            this.Width = width;
-            this.Height = height;
-            this.Thickness = thickness;
+            var sizes = new[] { width, height, thickness }.OrderBy(s => s).ToList();
+
+            this.Width = sizes[1];
+            this.Height = sizes[2];
+            this.Thickness = sizes[0];
         }
 
         public int Width { get; set; }
