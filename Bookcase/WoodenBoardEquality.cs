@@ -1,4 +1,4 @@
-﻿namespace Bookcase.Tests
+﻿namespace Bookcase
 {
     using System.Collections.Generic;
 

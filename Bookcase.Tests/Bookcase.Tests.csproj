@@ -62,7 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WoodenBoard.feature</DependentUpon>
     </Compile>
-    <Compile Include="WoodenBoardEquality.cs" />
     <Compile Include="WoodenBoardSteps.cs" />
   </ItemGroup>
   <ItemGroup>
