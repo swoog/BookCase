@@ -4,12 +4,12 @@ namespace Bookcase
 
     public class WoodenBoardResults
     {
-        public List<WoodenBoard> WoodenBoards { get; set; }
-
         public WoodenBoardResults(List<WoodenBoard> woodenBoards)
         {
             this.WoodenBoards = woodenBoards;
         }
+
+        public List<WoodenBoard> WoodenBoards { get; set; }
 
         public override string ToString()
         {

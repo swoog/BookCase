@@ -5,16 +5,6 @@ namespace Bookcase
 
     public class WoodenBoardResultsEquality : IEqualityComparer<WoodenBoardResults>
     {
-        public bool Equals(WoodenBoardResults x, WoodenBoardResults y)
-        {
-            return ScrambledEquals(x.WoodenBoards, y.WoodenBoards, new WoodenBoardEquality());
-        }
-
-        public int GetHashCode(WoodenBoardResults obj)
-        {
-            return 0;
-        }
-
         public static bool ScrambledEquals<T>(IEnumerable<T> list1, IEnumerable<T> list2, IEqualityComparer<T> comparer)
         {
             var cnt = new Dictionary<T, int>(comparer);
@@ -41,7 +31,18 @@ namespace Bookcase
                     return false;
                 }
             }
+
             return cnt.Values.All(c => c == 0);
+        }
+
+        public bool Equals(WoodenBoardResults x, WoodenBoardResults y)
+        {
+            return ScrambledEquals(x.WoodenBoards, y.WoodenBoards, new WoodenBoardEquality());
+        }
+
+        public int GetHashCode(WoodenBoardResults obj)
+        {
+            return 0;
         }
     }
 }

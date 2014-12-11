@@ -1,13 +1,11 @@
-﻿using TechTalk.SpecFlow;
-
-namespace Bookcase.Tests
+﻿namespace Bookcase.Tests
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
+    using TechTalk.SpecFlow;
+
     using Xunit;
-    using Xunit.Extensions;
 
     [Binding]
     public class CuttingWoodenBoardSteps
@@ -49,11 +47,11 @@ namespace Bookcase.Tests
                     .ToList();
 
             Assert.True(
-                WoodenBoardResultsEquality.ScrambledEquals(expectedWoodenBoards, this.woodenBoards, new WoodenBoardResultsEquality()),
-                string.Format(
-                    "Expected : {0}\n Actual : {1}",
-                    string.Join(" | ", expectedWoodenBoards),
-                    string.Join(" | ", this.woodenBoards)));
+                WoodenBoardResultsEquality.ScrambledEquals(
+                    expectedWoodenBoards,
+                    this.woodenBoards,
+                    new WoodenBoardResultsEquality()),
+                string.Format("Expected : {0}\n Actual : {1}", string.Join(" | ", expectedWoodenBoards), string.Join(" | ", this.woodenBoards)));
         }
     }
 }
