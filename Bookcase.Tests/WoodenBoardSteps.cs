@@ -13,7 +13,7 @@
         public void GivenAWoodenBoardOfMm(string woodenSize)
         {
             this.woodenBoard = new WoodenBoard(woodenSize);
-            ScenarioContext.Current.Add("woodenBoard", this.woodenBoard);
+            SpecHelper.WoodenBoard = this.woodenBoard;
         }
         
         [Then(@"the width is (.*) mm")]

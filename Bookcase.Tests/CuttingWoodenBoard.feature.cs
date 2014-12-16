@@ -124,25 +124,50 @@ this.ScenarioSetup(scenarioInfo);
         
         [Xunit.FactAttribute()]
         [Xunit.TraitAttribute("FeatureTitle", "Cutting Wooden Board")]
-        [Xunit.TraitAttribute("Description", "Cutting wooden board from 800x800")]
-        public virtual void CuttingWoodenBoardFrom800X800()
+        [Xunit.TraitAttribute("Description", "Cutting wooden board from 200x400")]
+        public virtual void CuttingWoodenBoardFrom200X400()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 800x800", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 200x400", ((string[])(null)));
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 23
- testRunner.Given("a wooden board of \"800x800x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("a wooden board of \"200x400x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 24
- testRunner.And("I want a wooden board of \"400x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I want a wooden board of \"200x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 25
  testRunner.When("I cut", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "Wooden board"});
             table3.AddRow(new string[] {
-                        "400x400x15,400x800x15,400x400x15"});
+                        "200x400x15"});
 #line 26
  testRunner.Then("I have this wooden boards :", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.FactAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Cutting Wooden Board")]
+        [Xunit.TraitAttribute("Description", "Cutting wooden board from 800x800")]
+        public virtual void CuttingWoodenBoardFrom800X800()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 800x800", ((string[])(null)));
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line 31
+ testRunner.Given("a wooden board of \"800x800x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+ testRunner.And("I want a wooden board of \"400x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.When("I cut", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Wooden board"});
+            table4.AddRow(new string[] {
+                        "400x400x15,400x800x15,400x400x15"});
+#line 34
+ testRunner.Then("I have this wooden boards :", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -153,23 +178,23 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CuttingWoodenBoardFrom600X800()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 600x800", ((string[])(null)));
-#line 30
+#line 38
 this.ScenarioSetup(scenarioInfo);
-#line 31
+#line 39
  testRunner.Given("a wooden board of \"600x800x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 32
+#line 40
  testRunner.And("I want a wooden board of \"400x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
+#line 41
  testRunner.When("I cut", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Wooden board"});
-            table4.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "400x400x15,200x800x15,400x400x15"});
-            table4.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "400x400x15,400x600x15,200x400x15"});
-#line 34
- testRunner.Then("I have this wooden boards :", ((string)(null)), table4, "Then ");
+#line 42
+ testRunner.Then("I have this wooden boards :", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -180,27 +205,27 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CuttingWoodenBoardFrom600X800WithRectangularSurface()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cutting wooden board from 600x800 with rectangular surface", ((string[])(null)));
-#line 40
+#line 48
 this.ScenarioSetup(scenarioInfo);
-#line 41
+#line 49
  testRunner.Given("a wooden board of \"600x800x15\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 42
+#line 50
  testRunner.And("I want a wooden board of \"200x400\" mm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 51
  testRunner.When("I cut", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Wooden board"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "200x400x15,400x600x15,200x800x15"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "200x400x15,200x200x15,600x600x15"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "200x400x15,200x400x15,400x800x15"});
-            table5.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "200x400x15,400x400x15,400x600x15"});
-#line 44
- testRunner.Then("I have this wooden boards :", ((string)(null)), table5, "Then ");
+#line 52
+ testRunner.Then("I have this wooden boards :", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

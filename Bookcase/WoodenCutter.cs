@@ -8,7 +8,7 @@
     {
         public IList<WoodenBoardResults> Cuts(WoodenBoard woodenBoard, WoodenBoardPattern woodenBoardPattern)
         {
-            return CreateCuts(woodenBoard, woodenBoardPattern).Distinct(new WoodenBoardResultsEquality()).ToList();
+            return CreateCuts(woodenBoard, woodenBoardPattern).Where(r => r.WoodenBoards.Count > 0).Distinct(new WoodenBoardResultsEquality()).ToList();
         }
 
         private static IEnumerable<WoodenBoardResults> CreateCuts(WoodenBoard woodenBoard, WoodenBoardPattern woodenBoardPattern)
@@ -28,19 +28,23 @@
             int patternHeight)
         {
             var woodenBoards = new List<WoodenBoard>();
-            woodenBoards.Add(new WoodenBoard(patternWidth, patternHeight, woodenBoard.Thickness));
 
-            var boardHeight = woodenBoard.Height;
-
-            if (boardHeight - patternHeight > 0)
+            if (woodenBoard.Width >= patternWidth && woodenBoard.Height >= patternHeight)
             {
-                woodenBoards.Add(new WoodenBoard(boardHeight - patternHeight, woodenBoard.Width, woodenBoard.Thickness));
+                woodenBoards.Add(new WoodenBoard(patternWidth, patternHeight, woodenBoard.Thickness));
 
-                woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, patternWidth, patternHeight));
-            }
-            else
-            {
-                woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, boardHeight, patternWidth));
+                var boardHeight = woodenBoard.Height;
+
+                if (boardHeight - patternHeight > 0)
+                {
+                    woodenBoards.Add(new WoodenBoard(boardHeight - patternHeight, woodenBoard.Width, woodenBoard.Thickness));
+
+                    woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, patternWidth, patternHeight));
+                }
+                else if (boardHeight - patternHeight == 0)
+                {
+                    woodenBoards.AddRange(CreateWoodenBoard2(woodenBoard, boardHeight, patternWidth));
+                }
             }
 
             return new WoodenBoardResults(woodenBoards);
@@ -63,19 +67,23 @@
             int patternHeight)
         {
             var woodenBoards = new List<WoodenBoard>();
-            woodenBoards.Add(new WoodenBoard(patternWidth, patternHeight, woodenBoard.Thickness));
-
-            var boardWidth = woodenBoard.Width;
-
-            if (boardWidth - patternWidth > 0)
+            if (woodenBoard.Width >= patternWidth && woodenBoard.Height >= patternHeight)
             {
-                woodenBoards.Add(new WoodenBoard(boardWidth - patternWidth, woodenBoard.Height, woodenBoard.Thickness));
+                woodenBoards.Add(new WoodenBoard(patternWidth, patternHeight, woodenBoard.Thickness));
 
-                woodenBoards.AddRange(CreateWoodenBoard(woodenBoard, patternWidth, patternHeight));
-            }
-            else
-            {
-                woodenBoards.AddRange(CreateWoodenBoard(woodenBoard, boardWidth, patternHeight));
+                var boardWidth = woodenBoard.Width;
+
+                if (boardWidth - patternWidth > 0)
+                {
+                    woodenBoards.Add(
+                        new WoodenBoard(boardWidth - patternWidth, woodenBoard.Height, woodenBoard.Thickness));
+
+                    woodenBoards.AddRange(CreateWoodenBoard(woodenBoard, patternWidth, patternHeight));
+                }
+                else if (boardWidth - patternWidth == 0)
+                {
+                    woodenBoards.AddRange(CreateWoodenBoard(woodenBoard, boardWidth, patternHeight));
+                }
             }
 
             return new WoodenBoardResults(woodenBoards);

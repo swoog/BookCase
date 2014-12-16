@@ -16,18 +16,11 @@
 
         private IList<WoodenBoardResults> woodenBoards;
 
-        public WoodenBoard WoodenBoard
-        {
-            get
-            {
-                return ScenarioContext.Current.Get<WoodenBoard>("woodenBoard");
-            }
-        }
-
         [Given(@"I want a wooden board of ""(.*)"" mm")]
         public void GivenIWantAWoodenBoardOfMm(string woodenBoard)
         {
             this.woodenBoardPattern = new WoodenBoardPattern(woodenBoard);
+            SpecHelper.WoodenBoardPatterns.Add(this.woodenBoardPattern);
         }
 
         [When(@"I cut")]
@@ -35,7 +28,7 @@
         {
             this.woodenCutter = new WoodenCutter();
 
-            this.woodenBoards = this.woodenCutter.Cuts(this.WoodenBoard, this.woodenBoardPattern);
+            this.woodenBoards = this.woodenCutter.Cuts(SpecHelper.WoodenBoard, this.woodenBoardPattern);
         }
 
         [Then(@"I have this wooden boards :")]
