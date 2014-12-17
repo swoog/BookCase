@@ -36,3 +36,21 @@ Scenario: Use two different board patern and two board.
 	And I want a wooden board of "200x400" mm
 	When I count cut
 	Then I have this 2 wooden board
+
+Scenario: Use three different board patern and two board.
+	Given a wooden board of "400x400x15" mm
+	And I want a wooden board of "400x400" mm
+	And I want a wooden board of "200x400" mm
+	And I want a wooden board of "200x400" mm
+	When I count cut
+	Then I have this 2 wooden board
+
+@ignore @wip
+Scenario: Use four different board patern and two board.
+	Given a wooden board of "400x400x15" mm
+	And I want a wooden board of "400x400" mm
+	And I want a wooden board of "200x400" mm
+	And I want a wooden board of "200x400" mm
+	And I want a wooden board of "300x400" mm
+	When I count cut
+	Then I have this 3 wooden board
