@@ -8,7 +8,12 @@
     {
         public IList<WoodenBoardResults> Cuts(WoodenBoard woodenBoard, WoodenBoardPattern woodenBoardPattern)
         {
-            return CreateCuts(woodenBoard, woodenBoardPattern).Where(r => r.WoodenBoards.Count > 0).Distinct(new WoodenBoardResultsEquality()).ToList();
+            return
+                CreateCuts(woodenBoard, woodenBoardPattern)
+                    .Where(r => r.WoodenBoards.Count > 0)
+                    .Where(r => r.WoodenBoards.Select(w => w.Area).Sum() == woodenBoard.Area)
+                    .Distinct(new WoodenBoardResultsEquality())
+                    .ToList();
         }
 
         private static IEnumerable<WoodenBoardResults> CreateCuts(WoodenBoard woodenBoard, WoodenBoardPattern woodenBoardPattern)

@@ -32,10 +32,13 @@ namespace Bookcase.Tests
     {
         public int CountCutting(WoodenBoard woodenBoard, List<WoodenBoardPattern> patterns)
         {
-            return CountCutting(woodenBoard, patterns, 1);
+            int c = 1;
+            CountCutting(woodenBoard, patterns, ref c);
+
+            return c;
         }
 
-        private static int CountCutting(WoodenBoard woodenBoard, List<WoodenBoardPattern> patterns, int board)
+        private static bool CountCutting(WoodenBoard woodenBoard, List<WoodenBoardPattern> patterns, ref int board)
         {
             var woodenCutter = new WoodenCutter();
 
@@ -51,7 +54,8 @@ namespace Bookcase.Tests
                     {
                         if (patterns.Count > 1)
                         {
-                            c = CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), c + 1);
+                            c++;
+                            CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
                         }
                     }
                     else
@@ -60,14 +64,24 @@ namespace Bookcase.Tests
                         {
                             var board1 = woodenBoardResultse.WoodenBoards[1];
 
-                            c = CountCutting(board1, patterns.Except(new[] { pattern }).ToList(), c);
+                            if (!CountCutting(board1, patterns.Except(new[] { pattern }).ToList(), ref c))
+                            {
+                                c++;
+                                CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
+                            }
                         }
 
                         if (woodenBoardResultse.WoodenBoards.Count > 2)
                         {
                             var board2 = woodenBoardResultse.WoodenBoards[2];
 
-                            c = CountCutting(board2, patterns.Except(new[] { pattern }).ToList(), c);
+                            CountCutting(board2, patterns.Except(new[] { pattern }).ToList(), ref c);
+
+                            if (!CountCutting(board2, patterns.Except(new[] { pattern }).ToList(), ref c))
+                            {
+                                c++;
+                                CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
+                            }
                         }
                     }
 
@@ -75,12 +89,14 @@ namespace Bookcase.Tests
                 }
             }
 
-            if (boardsCount.Count == 0)
+            if (boardsCount.Count != 0)
             {
-                return board;
+                board = boardsCount.Min();
+
+                return true;
             }
 
-            return boardsCount.Min();
+            return false;
         }
     }
 }

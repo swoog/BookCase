@@ -29,6 +29,14 @@
 
         public int Thickness { get; set; }
 
+        public int Area
+        {
+            get
+            {
+                return this.Width * this.Height;
+            }
+        }
+
         public override string ToString()
         {
             return string.Format("{0}x{1}x{2}", this.Width, this.Height, this.Thickness);

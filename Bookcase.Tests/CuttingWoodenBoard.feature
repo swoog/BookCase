@@ -27,6 +27,14 @@ Scenario: Cutting wooden board from 200x400
 	| Wooden board |
 	| 200x400x15   |
 
+Scenario: Cutting wooden board from 400x400
+	Given a wooden board of "400x400x15" mm
+	And I want a wooden board of "200x400" mm
+	When I cut
+	Then I have this wooden boards :
+	| Wooden board           |
+	| 200x400x15, 200x400x15 |
+
 Scenario: Cutting wooden board from 800x800
 	Given a wooden board of "800x800x15" mm
 	And I want a wooden board of "400x400" mm
