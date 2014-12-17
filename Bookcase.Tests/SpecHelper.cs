@@ -12,6 +12,7 @@ namespace Bookcase.Tests
             {
                 return ScenarioContext.Current.Get<WoodenBoard>("woodenBoard");
             }
+
             set
             {
                 ScenarioContext.Current["woodenBoard"] = value;

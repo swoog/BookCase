@@ -1,8 +1,7 @@
-﻿using System;
-using TechTalk.SpecFlow;
-
-namespace Bookcase.Tests
+﻿namespace Bookcase.Tests
 {
+    using TechTalk.SpecFlow;
+
     using Xunit;
 
     [Binding]
