@@ -30,7 +30,10 @@
                         if (patterns.Count > 1)
                         {
                             c++;
-                            CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
+                            if (!CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c))
+                            {
+                                break;
+                            }
                         }
                     }
                     else
@@ -42,7 +45,10 @@
                             if (!CountCutting(board1, patterns.Except(new[] { pattern }).ToList(), ref c))
                             {
                                 c++;
-                                CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
+                                if (!CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c))
+                                {
+                                    break;
+                                }
                             }
                         }
 
@@ -55,7 +61,10 @@
                             if (!CountCutting(board2, patterns.Except(new[] { pattern }).ToList(), ref c))
                             {
                                 c++;
-                                CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c);
+                                if (!CountCutting(woodenBoard, patterns.Except(new[] { pattern }).ToList(), ref c))
+                                {
+                                    break;
+                                }
                             }
                         }
                     }
